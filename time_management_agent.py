@@ -46,6 +46,8 @@ class TimeManagementAgent:
         time_slots = []
         for hour in range(6, 23):  # 6 AM to 10 PM
             for minute in [0, 30]:
+                if hour == 22 and minute == 30:  # Skip 22:30 to end at 10 PM
+                    continue
                 time_slots.append(f"{hour:02d}:{minute:02d}")
         
         # Create DataFrame with time slots
@@ -280,7 +282,7 @@ class TimeManagementAgent:
                 try:
                     if len(str(cell.value)) > max_length:
                         max_length = len(str(cell.value))
-                except:
+                except (TypeError, AttributeError):
                     pass
             
             adjusted_width = min(max_length + 2, 50)

@@ -6,7 +6,7 @@ import sys
 import os
 from datetime import datetime
 from time_management_agent import generate_time_management_excel
-st.set_page_config(page_title='Data Profiler & Time Management',layout='wide')
+st.set_page_config(page_title='Data Profiler & Time Management', layout='wide')
 
 
 def get_filesize(file):
